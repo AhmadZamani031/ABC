@@ -2,7 +2,7 @@
 
 #define LCD_H_
 
-#define F_CPU 4000000UL					
+#define F_CPU 8000000UL					
 #include <avr/io.h>						
 #include <util/delay.h>					
 

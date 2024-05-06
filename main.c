@@ -64,9 +64,9 @@ int main(void) {
 	float VBAT,ABAT,TBAT;
 	char SVBAT[5],SABAT[5],STBAT[5];
 	while (1) {
-		VBAT = ADCV();
+		VBAT = Read_V();
 		dtostrf(VBAT,5,2,SVBAT);
-		TBAT = ADCT();
+		TBAT = Read_T();
 		dtostrf(TBAT,5,2,STBAT);
 		if (VBAT>13.7) {
 			LCD_String_xy(0,0,"BAT is full");
@@ -91,7 +91,7 @@ int main(void) {
 				LCD_String_xy(1,0,"V:");
 				LCD_String_xy(1,2,SVBAT);
 				for (int X=0;X<28;X++) {
-					ABAT = ADCA() * 10;
+					ABAT = Read_A() * 10;
 					dtostrf(ABAT,5,2,SABAT);
 					LCD_String_xy(1,10,"A:");
 					LCD_String_xy(1,12,SABAT);
@@ -111,7 +111,7 @@ int main(void) {
 				LCD_String_xy(1,0,"V:");
 				LCD_String_xy(1,2,SVBAT);
 				for (int Y=0;Y<56;Y++) {
-					ABAT = ADCA() * 10;
+					ABAT = Read_A() * 10;
 					dtostrf(ABAT,5,2,SABAT);
 					LCD_String_xy(1,10,"A:");
 					LCD_String_xy(1,12,SABAT);
